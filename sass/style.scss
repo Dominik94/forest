@@ -1,109 +1,386 @@
 * {
-	box-sizing: border-box;
 	margin: 0;
-	padding: 0;
+	top: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
 }
 
 body {
 	font-family: 'Montserrat', sans-serif;
+	font-size: 1.6rem;
 }
 
 .wrapper {
 	margin: 0 auto;
 	width: 100%;
-	max-width: 1200px;
+	max-width: 1400px;
 }
 
-.nav {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-    height: 10vh;
-
-	.logo {
-		display: inline-block;
-	}
-
-	.nav-items {
-		display: flex;
-
-		.nav-item {
-			display: inline-block;
-			padding: 10px 15px;
-			text-decoration: none;
-		}
-
-		.nav-item:hover {
-			color: #fff;
-			background-color: #000;
-		}
-	}
-}
-
-.header {
-    position: relative;
-	display: flex;
+.navigation {
+	position: fixed;
+	width: 100%;
 	justify-content: center;
 	align-items: center;
-    flex-direction: column;
-    padding: 2em;
-    height: 40vh;
-    margin: 0 auto;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6)), url('/img/jungle-g30b73eff9_640.jpg');
+	z-index: 10;
+	background-color: #fff;
 
-	h1 {
-		font-size: 2em;
-        font-weight: normal;
-        color: #fff;
+	.nav {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		a {
+			text-decoration: none;
+			color: #000;
+			i {
+				color: rgb(70, 70, 70);
+				padding-right: 0.2em;
+			}
+		}
+
+		.logo {
+			font-size: 4rem;
+			padding: 0.4em 0;
+		}
+
+		.hamburger-btn {
+			display: none;
+			background-color: transparent;
+			border: none;
+			margin: 0;
+			cursor: pointer;
+			height: 45px;
+			padding: 1em;
+
+			.hamburger-box {
+				display: inline-block;
+				position: relative;
+				width: 40px;
+				height: 24px;
+
+				@mixin line {
+					width: 100%;
+					height: 5px;
+					background-color: #000;
+					border-radius: 3px;
+					position: absolute;
+				}
+
+				.hamburger-line {
+					@include line;
+					left: 0;
+					top: 50%;
+					transform: translateY(-50%);
+					transition: background-color 0.1s 0.2s ease-in-out;
+				}
+
+				.hamburger-line::after,
+				.hamburger-line::before {
+					@include line;
+					content: '';
+					left: 0;
+					transition: transform 0.2s 0.2s ease-in-out;
+				}
+
+				.hamburger-line::after {
+					top: 10px;
+				}
+
+				.hamburger-line::before {
+					top: -10px;
+				}
+			}
+		}
+
+		.hamburger-active {
+			.hamburger-box {
+				.hamburger-line {
+					background-color: transparent;
+				}
+
+				.hamburger-line::before {
+					transform: translateY(10px) rotate(45deg);
+				}
+
+				.hamburger-line::after {
+					transform: translateY(-10px) rotate(-45deg);
+				}
+			}
+		}
+
+		.nav-items {
+			display: flex;
+			flex-direction: row;
+			height: 100%;
+			.nav-item {
+				font-size: 2rem;
+				padding: 1.5em;
+			}
+
+			.nav-item:hover {
+				background-color: #000;
+				color: #fff;
+			}
+		}
+	}
+}
+
+header {
+	.hero-img {
+		position: relative;
+		background-image: url('/img/jungle-1807476_1920.jpg');
+		height: 600px;
+		background-position: 0 800px;
+		background-size: cover;
+		background-attachment: fixed;
+		z-index: 0;
+
+		.hero-shadow {
+			background-color: rgba(0, 0, 0, 0.6);
+			z-index: 1;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.title-text {
+		position: absolute;
+		color: #fff;
+		top: 25%;
+		z-index: 2;
+		h1 {
+			font-size: 2.8rem;
+			font-weight: 400;
+		}
+		h2 {
+			font-size: 5rem;
+		}
+	}
+}
+
+.section-title {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 4rem;
+	font-weight: 300;
+	padding: 1.2em;
+}
+
+.aboutus {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	padding-bottom: 4em;
+	.aboutus-img {
+		width: 50%;
+		padding-right: 4em;
+		img {
+			width: 100%;
+		}
 	}
 
-	p {
-		font-size: 3em;
-        font-weight: bold;
-        color: #fff;
+	.aboutus-info {
+		display: flex;
+		flex-direction: column;
+		align-content: flex-start;
+		width: 50%;
+		h3 {
+			font-size: 3rem;
+			padding-bottom: 0.5em;
+			font-weight: 600;
+		}
+		p {
+			font-size: 1.8rem;
+			font-weight: 300;
+			line-height: 2.1em;
+			padding-right: 1em;
+		}
+	}
+}
+
+.adventure {
+	position: relative;
+	.hero-img {
+		position: relative;
+		background-image: url('/img/girl-5785590_1920.jpg');
+		height: 400px;
+		background-position: center;
+		background-size: cover;
+		z-index: 0;
+
+		.hero-shadow {
+			background-color: rgba(6, 22, 6, 0.6);
+			z-index: 1;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.title {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: #fff;
+		z-index: 2;
+		width: 100%;
+		height: 100%;
+
+		p {
+			border: 1px solid #fff;
+			font-size: 4rem;
+			font-weight: 500;
+			padding: 1em 6em;
+		}
+	}
+}
+
+.offer {
+	padding-bottom: 4em;
+	.section-info {
+		text-align: center;
+		font-size: 2.4rem;
+		padding-bottom: 2em;
+	}
+	.wrapper {
+		max-width: 1000px;
 	}
 
+	.offer-boxes {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-content: inherit;
+		// padding: 0 12em;
 
+		.offer-box {
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+			border-radius: 10px;
+			padding: 2em 3em;
+
+			.offer-title {
+				text-align: center;
+				font-size: 2.8rem;
+				font-weight: 300;
+			}
+
+			.offer-price {
+				text-align: center;
+				font-size: 4.4rem;
+				font-weight: 600;
+				padding: 0.5em 0;
+			}
+
+			.offer-option {
+				padding: 0.2em;
+				font-size: 1.8rem;
+
+				.fa-check {
+					color: rgb(0, 161, 40);
+				}
+			}
+
+			.offer-option-off {
+				color: gray;
+			}
+
+			.offer-btn {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding-top: 2em;
+				z-index: 0;
+
+				.btn {
+					font-size: 1.8rem;
+					font-weight: 200;
+					padding: 0.5em 3em;
+					box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+					border: none;
+					background-color: #fff;
+					border-radius: 5px;
+					z-index: 10;
+				}
+
+				.btn-default {
+					background-color: rgb(75, 235, 88);
+					box-shadow: 0 0 5px rgba(21, 255, 41, 0.8);
+				}
+			}
+		}
+	}
 }
 
-.main {
-    .aboutus{
-        position: relative;
-        
-        .img {
-            background-image: url('/img/waters-g7edad87e6_640.jpg');
-            width: 50%;
-            height: 20em;
-        }
+footer {
+	background-color: rgb(240, 240, 240);
+	.contact {
+		padding: 4em;
+		.wrapper {
+			max-width: 1000px;
+		}
 
-        .aboutus-info {
-            width: 50%;
-        }
-    }
+		.contact-box {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+
+			a {
+				text-decoration: none;
+				color: #000;
+
+				i {
+					color: rgb(70, 70, 70);
+					padding-right: 0.2em;
+				}
+			}
+
+			.contact-logo {
+				font-size: 5rem;
+			}
+
+			.contact-items {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
+
+				.contact-item {
+					display: flex;
+					flex-direction: column;
+					padding: 2em;
+
+					a {
+						padding: 1em 0;
+					}
+				}
+			}
+		}
+	}
+
+	.copyright {
+		border-top: 1px solid black;
+		text-align: center;
+		padding: 2em;
+		font-size: 0.9em;
+	}
 }
 
-.section-heading {
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 3em;
-    font-weight: 200;
-    padding: 1em;
-}
-
-@media (min-width: 576px) {
-    
-}
-
-@media (min-width: 768px) {
-
-}
-
-@media (min-width: 992px) {
-    .header {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.6)), url('/img/jungle-gf978890f5_1920.jpg');
-    }
-}
-
-@media (min-width: 1200px) {
-
+@media (max-width: 767px) {
+	.navigation {
+		.nav {
+			.hamburger-btn {
+				display: flex;
+				// display: none;
+			}
+			.nav-items {
+				display: none;
+			}
+		}
+	}
 }
