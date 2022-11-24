@@ -1,0 +1,114 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 10vh;
+}
+
+.nav .logo {
+  display: inline-block;
+}
+
+.nav .nav-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nav .nav-items .nav-item {
+  display: inline-block;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+.nav .nav-items .nav-item:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+.header {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 2em;
+  height: 40vh;
+  margin: 0 auto;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6))), url("/img/jungle-g30b73eff9_640.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6)), url("/img/jungle-g30b73eff9_640.jpg");
+}
+
+.header h1 {
+  font-size: 2em;
+  font-weight: normal;
+  color: #fff;
+}
+
+.header p {
+  font-size: 3em;
+  font-weight: bold;
+  color: #fff;
+}
+
+.main .aboutus {
+  position: relative;
+}
+
+.main .aboutus .img {
+  background-image: url("/img/waters-g7edad87e6_640.jpg");
+  width: 50%;
+  height: 20em;
+}
+
+.main .aboutus .aboutus-info {
+  width: 50%;
+}
+
+.section-heading {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 3em;
+  font-weight: 200;
+  padding: 1em;
+}
+
+@media (min-width: 992px) {
+  .header {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6))), url("/img/jungle-gf978890f5_1920.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6)), url("/img/jungle-gf978890f5_1920.jpg");
+  }
+}
+/*# sourceMappingURL=style.css.map */
